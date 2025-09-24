@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pératsim Innovation - Intelligence Artificielle & Automatisation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e4d8b;
+            --secondary-color: #f39c12;
+            --accent-color: #2c5aa0;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1a1a1a;
+            --text-dark: #333;
+            --text-light: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-container {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            position: relative;
+        }
+        
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        /* Logo variants for different sections */
+        .logo-footer {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-footer:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .logo-footer img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(255, 255, 255, 0.4));
+        }
+        
+        .logo-section {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 3rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .logo-section:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .logo-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(30, 77, 139, 0.3));
+        }
+        
+        .logo-section::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, transparent, rgba(243, 156, 18, 0.1), transparent);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-section:hover::after {
+            opacity: 1;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 77, 139, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="400" cy="300" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="600" cy="150" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="400" r="2" fill="rgba(255,255,255,0.15)"/><circle cx="300" cy="500" r="1" fill="rgba(255,255,255,0.2)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-section .lead {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-item, .sector-item {
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        .service-icon, .sector-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-icon:hover, .sector-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-img {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-img::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .feature-img::after {
+            content: 'Image à venir';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .sector-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sector-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .sector-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .priority-badge {
+            background: linear-gradient(135deg, var(--secondary-color), #e67e22);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Background Gradients */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        }
+
+        .bg-gradient-dark {
+            background: linear-gradient(135deg, var(--dark-bg), #2c2c2c);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-item, .sector-item {
+                text-align: center;
+            }
+        }
+
+        /* Custom styling for contact section */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            width: 24px;
+        }
+
+        /* New styles for expertise section */
+        .expertise-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#accueil">
+                <div class="logo-container">
+                  <img src="Logo Peratsim Innovation.svg" alt="Pératsim Innovation">
+                </div>
+                Pératsim Innovation
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#expertises">Expertises</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#secteurs">Secteurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-primary rounded-pill px-4">Consultation gratuite</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section id="accueil" class="hero-section">
+        <div class="container py-5 hero-content">
+            <div class="row align-items-center justify-content-center text-center min-vh-100">
+                <div class="col-lg-8">
+                    <div class="mb-4">
+                        <h1 class="display-4 fw-bold text-white mb-4">
+                            Transformez votre <span class="text-warning">Vision</span> en <span class="text-warning">Réalité</span>
+                        </h1>
+                        <p class="lead text-white mb-4">
+                            <strong>Voir plus clair, agir plus juste</strong><br>
+                            <span class="text-white-75">Partenaire technologique complet pour votre transformation digitale</span>
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <a href="#services" class="btn btn-warning btn-lg rounded-pill px-5 fw-semibold">
+                                <i class="fas fa-arrow-right me-2" aria-hidden="true"></i>
+                                Découvrez nos solutions
+                            </a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg rounded-pill px-5">
+                                <i class="fas fa-calendar-alt me-2" aria-hidden="true"></i>
+                                Consultation gratuite
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center mb-5">
+                        <div class="logo-section">
+                            <img src="Logo Peratsim Innovation.svg" alt="Pératsim Innovation">
+                        </div>
+                    </div>
+                    <h2 class="section-title text-center">Qui sommes-nous?</h2>
+                    <p class="lead mb-4">Pératsim Innovation accompagne les entreprises dans leur quête d'excellence opérationnelle et d'innovation stratégique.</p>
+                    <p class="mb-4">Experts en technologies avancées, nous maîtrisons l'ensemble de l'écosystème digital : développement logiciel, cybersécurité, infrastructures réseaux, solutions d'automatisation et accompagnement stratégique.</p>
+                    <div class="row">
+                        <div class="col-sm-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-bullseye fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Notre mission</h5>
+                                    <p class="mb-0">Optimiser vos processus par des solutions technologiques innovantes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-eye fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Notre vision</h5>
+                                    <p class="mb-0">Accompagner durablement votre croissance par l'innovation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary rounded-pill px-4">Discutons de votre projet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <div class="logo-section">
+                        <img src="Logo Peratsim Innovation.svg" alt="Pératsim Innovation">
+                    </div>
+                    <h2 class="display-5 fw-bold mb-3 fade-in">Nos Solutions</h2>
+                    <p class="lead text-muted fade-in">Un écosystème complet pour votre transformation digitale</p>
+                    <div class="service-categories mb-5">
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-auto">
+                                <span class="badge bg-primary-light px-3 py-2 rounded-pill text-primary fw-semibold">
+                                    <i class="fas fa-code me-2"></i>Développement
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="badge bg-success-light px-3 py-2 rounded-pill text-success fw-semibold">
+                                    <i class="fas fa-shield-alt me-2"></i>Cybersécurité
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="badge bg-warning-light px-3 py-2 rounded-pill text-warning fw-semibold">
+                                    <i class="fas fa-network-wired me-2"></i>Infrastructures
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="badge bg-info-light px-3 py-2 rounded-pill text-info fw-semibold">
+                                    <i class="fas fa-cogs me-2"></i>Automatisation
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center service-item">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-content">
+                        <div class="bg-primary text-white rounded-3 p-3 mb-4 service-icon">
+                            <i class="fas fa-laptop-code fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Développement Logiciel</h3>
+                        <p class="mb-4">Nous concevons et développons des applications sur mesure, des plateformes web et mobiles performantes adaptées à vos besoins spécifiques et à votre secteur d'activité.</p>
+                        <ul class="sector-features">
+                            <li>Applications web et mobiles natives</li>
+                            <li>Plateformes de gestion métier</li>
+                            <li>Sites web et e-commerce</li>
+                            <li>Systèmes de gestion de données</li>
+                            <li>Intégrations et API sur mesure</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center service-item">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-content">
+                        <div class="bg-success text-white rounded-3 p-3 mb-4 service-icon">
+                            <i class="fas fa-shield-alt fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Cybersécurité</h3>
+                        <p class="mb-4">Nous protégeons vos infrastructures et données grâce à des solutions de cybersécurité avancées, des audits de vulnérabilités et des stratégies de protection adaptées.</p>
+                        <ul class="sector-features">
+                            <li>Audits de sécurité et tests de pénétration</li>
+                            <li>Protection des données et chiffrement</li>
+                            <li>Pare-feu et systèmes de détection</li>
+                            <li>Formation cybersécurité des équipes</li>
+                            <li>Conformité et gouvernance sécurité</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center service-item">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-content">
+                        <div class="bg-warning text-white rounded-3 p-3 mb-4 service-icon">
+                            <i class="fas fa-network-wired fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Infrastructures Réseaux</h3>
+                        <p class="mb-4">Nous concevons, installons et maintenons vos infrastructures réseaux et télécommunications pour assurer une connectivité performante et sécurisée.</p>
+                        <ul class="sector-features">
+                            <li>Robots industriels et collaboratifs</li>
+                            <li>Drones pour inspection et surveillance</li>
+                            <li>Systèmes robotisés sur mesure</li>
+                            <li>Maintenance et formation</li>
+                            <li>Solutions robotiques pour l'agriculture</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center service-item">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-content">
+                        <div class="bg-info text-white rounded-3 p-3 mb-4 service-icon">
+                            <i class="fas fa-lightbulb fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Consulting</h3>
+                        <p class="mb-4">Notre équipe d'experts vous accompagne dans votre transformation digitale, de l'audit initial à la mise en œuvre de votre stratégie technologique.</p>
+                        <ul class="sector-features">
+                            <li>Audit et diagnostic technologique</li>
+                            <li>Stratégie de transformation digitale</li>
+                            <li>Études de faisabilité</li>
+                            <li>Accompagnement stratégique</li>
+                            <li>Conseil en cybersécurité et infrastructures</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center service-item">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-content">
+                        <div class="bg-danger text-white rounded-3 p-3 mb-4 service-icon">
+                            <i class="fas fa-graduation-cap fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Formation</h3>
+                        <p class="mb-4">Nous formons vos équipes aux nouvelles technologies pour garantir une adoption réussie et une utilisation optimale des solutions que nous déployons.</p>
+                        <ul class="sector-features">
+                            <li>Formation sur les nouvelles technologies</li>
+                            <li>Accompagnement au changement</li>
+                            <li>Certification des équipes</li>
+                            <li>Support utilisateurs</li>
+                            <li>Ateliers pratiques et formations sur mesure</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertises" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-3 fade-in">Nos Expertises Techniques</h2>
+                    <p class="lead text-muted fade-in">Domaines de spécialisation et compétences techniques</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card h-100 border-0 shadow-sm expertise-card">
+                        <div class="card-body text-center p-4">
+                            <div class="expertise-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Développement Logiciel</h4>
+                            <p class="text-muted">Applications web et mobiles, systèmes embarqués, plateformes numériques sur mesure adaptées à vos besoins spécifiques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card h-100 border-0 shadow-sm expertise-card">
+                        <div class="card-body text-center p-4">
+                            <div class="expertise-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Cybersécurité</h4>
+                            <p class="text-muted">Solutions de sécurité informatique, protection des données, audits de vulnérabilités et stratégies de cybersécurité.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card h-100 border-0 shadow-sm expertise-card">
+                        <div class="card-body text-center p-4">
+                            <div class="expertise-icon">
+                                <i class="fas fa-broadcast-tower"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Infrastructures Réseaux</h4>
+                            <p class="text-muted">Conception, déploiement et maintenance d'infrastructures réseau performantes et sécurisées pour entreprises.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card h-100 border-0 shadow-sm expertise-card">
+                        <div class="card-body text-center p-4">
+                            <div class="expertise-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Communication Digitale</h4>
+                            <p class="text-muted">Stratégies de marketing digital, création de contenu multimédia, gestion de présence en ligne et campagnes publicitaires.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card h-100 border-0 shadow-sm expertise-card">
+                        <div class="card-body text-center p-4">
+                            <div class="expertise-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Solutions Matérielles</h4>
+                            <p class="text-muted">Vente, installation et maintenance de matériel informatique, serveurs, équipements réseau et solutions technologiques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card h-100 border-0 shadow-sm expertise-card">
+                        <div class="card-body text-center p-4">
+                            <div class="expertise-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Veille Technologique</h4>
+                            <p class="text-muted">Études de marché, analyse des tendances technologiques et conseil stratégique pour rester compétitif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-3">Notre Méthode Prouvée</h2>
+                    <p class="lead text-muted">Un processus structuré pour garantir votre succès</p>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="position-relative">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-search fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Analyse</h4>
+                        <p class="text-muted">Audit complet de vos besoins et identification des opportunités d'amélioration</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="position-relative">
+                        <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-cogs fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Développement</h4>
+                        <p class="text-muted">Conception et déploiement de solutions adaptées à vos spécificités</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="position-relative">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Accompagnement</h4>
+                        <p class="text-muted">Formation de vos équipes et support continu pour optimiser l'adoption</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-5">
+                    <i class="fas fa-arrow-right me-2"></i>Démarrer votre projet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="secteurs" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-3 fade-in">Nos Secteurs d'Intervention</h2>
+                    <p class="lead text-muted fade-in">Solutions adaptées aux besoins spécifiques de chaque industrie</p>
+                </div>
+            </div>
+            
+            <div class="row align-items-center sector-item">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sector-content">
+                        <div class="priority-badge d-inline-block">Secteur prioritaire</div>
+                        <div class="bg-primary text-white rounded-3 p-3 mb-4 sector-icon">
+                            <i class="fas fa-industry fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Industrie</h3>
+                        <p class="mb-4">Nous proposons des solutions d'automatisation et d'IA pour optimiser la production, améliorer la qualité et réduire les coûts dans le secteur industriel.</p>
+                        <h5 class="mb-3">Solutions spécifiques :</h5>
+                        <ul class="sector-features">
+                            <li>Automatisation des chaînes de production</li>
+                            <li>Maintenance prédictive des équipements</li>
+                            <li>Contrôle qualité par vision artificielle</li>
+                            <li>Optimisation énergétique</li>
+                            <li>Gestion intelligente des stocks</li>
+                            <li>Robots industriels collaboratifs</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour l'industrie</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center sector-item">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="sector-content">
+                        <div class="priority-badge d-inline-block">Secteur prioritaire</div>
+                        <div class="bg-success text-white rounded-3 p-3 mb-4 sector-icon">
+                            <i class="fas fa-apple-alt fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Agroalimentaire</h3>
+                        <p class="mb-4">Nous développons des solutions technologiques pour améliorer la traçabilité, optimiser la production et garantir la qualité dans l'industrie agroalimentaire.</p>
+                        <h5 class="mb-3">Solutions spécifiques :</h5>
+                        <ul class="sector-features">
+                            <li>Systèmes de traçabilité intelligente</li>
+                            <li>Contrôle qualité automatisé</li>
+                            <li>Optimisation des processus de transformation</li>
+                            <li>Gestion des chaines du froid</li>
+                            <li>Prédiction des rendements</li>
+                            <li>Logistique et supply chain optimisées</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour l'agroalimentaire</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center sector-item">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sector-content">
+                        <div class="priority-badge d-inline-block">Secteur prioritaire</div>
+                        <div class="bg-warning text-white rounded-3 p-3 mb-4 sector-icon">
+                            <i class="fas fa-tractor fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Agriculture</h3>
+                        <p class="mb-4">Nous mettons l'<strong>Intelligence Artificielle</strong> et la <strong>robotique</strong> au service d'une agriculture plus productive, durable et respectueuse de l'environnement.</p>
+                        <h5 class="mb-3">Solutions spécifiques :</h5>
+                        <ul class="sector-features">
+                            <li>Agriculture de précision avec drones et capteurs</li>
+                            <li>Robots pour désherbage et récolte</li>
+                            <li>Optimisation de l'irrigation</li>
+                            <li>Prédiction des maladies des cultures</li>
+                            <li>Gestion intelligente des exploitations</li>
+                            <li>Solutions pour l'agriculture urbaine</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour l'agriculture</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center sector-item">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="feature-img"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="sector-content">
+                        <div class="priority-badge d-inline-block">Secteur prioritaire</div>
+                        <div class="bg-info text-white rounded-3 p-3 mb-4 sector-icon">
+                            <i class="fas fa-tint fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Gestion de l'Eau</h3>
+                        <p class="mb-4">Nous proposons des solutions innovantes pour une gestion optimale des ressources en eau, depuis le captage jusqu'à la distribution.</p>
+                        <h5 class="mb-3">Solutions spécifiques :</h5>
+                        <ul class="sector-features">
+                            <li>Systèmes de monitoring en temps réel</li>
+                            <li>Détection de fuites par IA</li>
+                            <li>Optimisation des réseaux de distribution</li>
+                            <li>Gestion intelligente de l'irrigation</li>
+                            <li>Traitement et purification de l'eau</li>
+                            <li>Prédiction de la demande en eau</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour la gestion de l'eau</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="py-5 bg-gradient-primary text-white">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-3 fade-in">Contactez-nous</h2>
+                    <p class="lead fade-in">Prêt à transformer vos défis technologiques en opportunités de croissance?</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <form>
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Nom complet</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Adresse email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="company" class="form-label">Entreprise</label>
+                                        <input type="text" class="form-control" id="company" placeholder="Nom de votre entreprise">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Téléphone</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="Votre numéro">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="service" class="form-label">Service souhaité</label>
+                                        <select class="form-select" id="service">
+                                            <option selected>Sélectionnez un service...</option>
+                                            <option>Intelligence Artificielle</option>
+                                            <option>Automatisation</option>
+                                            <option>Robotique</option>
+                                            <option>Consulting</option>
+                                            <option>Formation</option>
+                                            <option>Solutions Matérielles</option>
+                                            <option>Autre</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="5" placeholder="Décrivez votre projet ou demande..." required></textarea>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Envoyer le message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 text-center">
+                    <div class="contact-item mx-auto" style="max-width: 300px;">
+                        <i class="fas fa-map-marker-alt fa-2x text-warning"></i>
+                        <div>
+                            <h5>Adresse</h5>
+                            <p class="mb-0">Ouagadougou<br>Burkina Faso</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="contact-item mx-auto" style="max-width: 300px;">
+                        <i class="fas fa-phone fa-2x text-warning"></i>
+                        <div>
+                            <h5>Téléphone</h5>
+                            <p class="mb-0">+226 74 51 18 20</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="contact-item mx-auto" style="max-width: 300px;">
+                        <i class="fas fa-envelope fa-2x text-warning"></i>
+                        <div>
+                            <h5>Email</h5>
+                            <p class="mb-0">contact@peratsim.bf</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="logo-footer">
+                            <img src="Logo Peratsim Innovation.svg" alt="Pératsim Innovation">
+                        </div>
+                    </div>
+                    <h5 class="text-uppercase fw-bold mb-4">Pératsim Innovation</h5>
+                    <p>Partenaire technologique complet pour votre transformation digitale. Solutions logicielles, infrastructures, cybersécurité, automatisation et conseil stratégique pour votre excellence opérationnelle.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-white" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-uppercase fw-bold mb-4">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#accueil" class="text-white text-decoration-none">Accueil</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="#secteurs" class="text-white text-decoration-none">Secteurs</a></li>
+                        <li class="mb-2"><a href="#apropos" class="text-white text-decoration-none">À propos</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-uppercase fw-bold mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Solutions IA</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Automatisation</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Systèmes Robotiques</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Conseil Stratégique</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Formation & Accompagnement</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-uppercase fw-bold mb-4">Contact</h5>
+                    <address class="mb-2">
+                        <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i>
+                        Ouagadougou<br>
+                        Burkina Faso
+                    </address>
+                    <p class="mb-2">
+                        <i class="fas fa-phone me-2" aria-hidden="true"></i>
+                        +226 74 51 18 20
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-envelope me-2" aria-hidden="true"></i>
+                        contact@peratsim.bf
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Pératsim Innovation. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Mentions légales</a></li>
+                        <li class="list-inline-item mx-3">|</li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#accueil" class="back-to-top bg-primary text-white shadow" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow');
+                navbar.style.padding = '0.5rem 0';
+            } else {
+                navbar.classList.remove('shadow');
+                navbar.style.padding = '1rem 0';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
