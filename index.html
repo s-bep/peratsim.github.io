@@ -28,8 +28,12 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="Logo Peratsim Innovation.svg">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
+    <link rel="apple-touch-icon" href="Assets/favicon.png">
+
+    <!-- Preload critical images -->
+    <link rel="preload" href="Logo Peratsim Innovation.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="Assets/A propos.png" as="image" type="image/png">
 
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -301,6 +305,19 @@
             object-fit: cover;
             border-radius: 20px;
             transition: transform 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        /* Image optimization */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* Preload critical images */
+        .feature-img img[loading="lazy"] {
+            content-visibility: auto;
+            contain-intrinsic-size: 400px;
         }
 
         .feature-img:hover img {
@@ -528,61 +545,6 @@
             transform: translateY(-3px);
         }
 
-        /* WhatsApp floating button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 100px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
-            color: white;
-            text-decoration: none;
-        }
-
-        .whatsapp-float i {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6);
-            }
-            100% {
-                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 50%, 100% {
-                transform: translateY(0);
-            }
-            25% {
-                transform: translateY(-3px);
-            }
-            75% {
-                transform: translateY(-1px);
-            }
-        }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -880,7 +842,7 @@
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="feature-img">
-                        <img src="Assets/Marketing.png" alt="Consulting et stratégie digitale - Pératsim Innovation accompagnement transformation numérique" loading="lazy">
+                        <img src="Assets/Hero.png" alt="Consulting et stratégie digitale - Pératsim Innovation accompagnement transformation numérique" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -934,7 +896,7 @@
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
                     <div class="feature-img">
-                        <img src="Assets/Hero.png" alt="Infrastructures réseaux et télécommunications - Solutions réseau professionnelles" loading="lazy">
+                        <img src="Assets/Marketing.png" alt="Infrastructures réseaux et télécommunications - Solutions réseau professionnelles" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -1403,10 +1365,6 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </a>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20vous%20contacter." target="_blank" class="whatsapp-float" aria-label="Contactez-nous sur WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -1633,17 +1591,6 @@
             this.reset();
         });
 
-        // Add animation to WhatsApp button on scroll
-        window.addEventListener('scroll', function() {
-            const whatsappBtn = document.querySelector('.whatsapp-float');
-            if (window.pageYOffset > 300) {
-                whatsappBtn.style.transform = 'scale(1)';
-                whatsappBtn.style.opacity = '1';
-            } else {
-                whatsappBtn.style.transform = 'scale(0.8)';
-                whatsappBtn.style.opacity = '0.8';
-            }
-        });
     </script>
 </body>
 </html>
