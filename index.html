@@ -3,7 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pératsim Innovation - Intelligence Artificielle & Automatisation</title>
+    <title>Pératsim Innovation - Solutions IA, Automatisation & Développement au Burkina Faso</title>
+    <meta name="description" content="Pératsim Innovation, votre partenaire technologique au Burkina Faso. Spécialiste en Intelligence Artificielle, développement logiciel, cybersécurité et automatisation. Solutions innovantes pour entreprises. Contact: +22674554509">
+    <meta name="keywords" content="Pératsim Innovation, Intelligence Artificielle Burkina Faso, développement logiciel Ouagadougou, cybersécurité, automatisation, robotique, consultation gratuite, peratsim.com">
+    <meta name="author" content="Pératsim Innovation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.peratsim.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.peratsim.com">
+    <meta property="og:title" content="Pératsim Innovation - Solutions IA & Automatisation au Burkina Faso">
+    <meta property="og:description" content="Transformez votre vision en réalité avec nos solutions d'Intelligence Artificielle, développement logiciel et automatisation. Consultation gratuite.">
+    <meta property="og:image" content="https://www.peratsim.com/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Pératsim Innovation">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.peratsim.com">
+    <meta property="twitter:title" content="Pératsim Innovation - Solutions IA & Automatisation">
+    <meta property="twitter:description" content="Partenaire technologique complet pour votre transformation digitale au Burkina Faso.">
+    <meta property="twitter:image" content="https://www.peratsim.com/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="Logo Peratsim Innovation.svg">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pératsim Innovation",
+      "url": "https://www.peratsim.com",
+      "logo": "https://www.peratsim.com/logo.png",
+      "description": "Partenaire technologique spécialisé en Intelligence Artificielle, développement logiciel, cybersécurité et automatisation au Burkina Faso.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+22674554509",
+        "contactType": "customer service",
+        "availableLanguage": "French"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ouagadougou",
+        "addressCountry": "BF"
+      },
+      "sameAs": [
+        "https://www.facebook.com/peratsimInnovation"
+      ],
+      "serviceType": ["Intelligence Artificielle", "Développement Logiciel", "Cybersécurité", "Automatisation", "Robotique"]
+    }
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -242,27 +295,34 @@
             justify-content: center;
         }
 
-        .feature-img::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            opacity: 0.1;
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
         }
 
-        .feature-img::after {
-            content: 'Image à venir';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--text-light);
-            font-style: italic;
+        .feature-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Social links animation */
+        .social-link {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px) scale(1.1);
+            color: var(--secondary-color) !important;
         }
 
         .sector-features {
@@ -315,22 +375,138 @@
             background: linear-gradient(135deg, var(--dark-bg), #2c2c2c);
         }
 
-        /* Animations */
+        /* Enhanced Professional Animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.2s; }
-        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        .fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .fade-in:nth-child(3) { transition-delay: 0.3s; }
+
+        /* Smooth scroll-triggered animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced card hover effects */
+        .card, .expertise-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card:hover, .expertise-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        /* Smooth button animations */
+        .btn {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced icon animations */
+        .service-icon, .sector-icon, .expertise-icon {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .service-icon:hover, .sector-icon:hover {
+            transform: translateY(-5px) rotate(5deg) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Professional floating animation */
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
             }
+            25% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+            50% {
+                transform: translateY(-12px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-8px) rotate(-1deg);
+            }
+        }
+
+        .hero-section::before {
+            animation: gentleFloat 12s ease-in-out infinite;
+        }
+
+        /* Smooth navbar transition */
+        .navbar {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Enhanced logo animations */
+        .logo-section, .logo-footer, .logo-container {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .logo-section:hover {
+            transform: scale(1.08) rotate(2deg);
+            filter: drop-shadow(0 8px 16px rgba(30, 77, 139, 0.4));
+        }
+
+        .logo-footer:hover {
+            transform: scale(1.15) rotate(8deg);
+            filter: brightness(0) invert(1) drop-shadow(0 6px 12px rgba(255, 255, 255, 0.6));
+        }
+
+        /* Parallax effect for hero section */
+        .hero-content {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Stagger animation for lists */
+        .sector-features li {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .sector-features li:nth-child(1) { transition-delay: 0.1s; }
+        .sector-features li:nth-child(2) { transition-delay: 0.2s; }
+        .sector-features li:nth-child(3) { transition-delay: 0.3s; }
+        .sector-features li:nth-child(4) { transition-delay: 0.4s; }
+        .sector-features li:nth-child(5) { transition-delay: 0.5s; }
+        .sector-features li:nth-child(6) { transition-delay: 0.6s; }
+
+        .sector-features li.animate-in {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         /* Back to top button */
@@ -350,6 +526,62 @@
 
         .back-to-top:hover {
             transform: translateY(-3px);
+        }
+
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 100px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-float i {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 50%, 100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-3px);
+            }
+            75% {
+                transform: translateY(-1px);
+            }
         }
 
         /* Responsive */
@@ -478,7 +710,9 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/A propos.png" alt="Équipe Pératsim Innovation - Expertise en technologies avancées au Burkina Faso" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="text-center mb-5">
@@ -513,7 +747,9 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#contact" class="btn btn-primary rounded-pill px-4">Discutons de votre projet</a>
+                    <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20discuter%20de%20mon%20projet." target="_blank" class="btn btn-primary rounded-pill px-4">
+                        <i class="fab fa-whatsapp me-2"></i>Discutons de votre projet
+                    </a>
                 </div>
             </div>
         </div>
@@ -542,12 +778,17 @@
                             </div>
                             <div class="col-auto">
                                 <span class="badge bg-warning-light px-3 py-2 rounded-pill text-warning fw-semibold">
-                                    <i class="fas fa-network-wired me-2"></i>Infrastructures
+                                    <i class="fas fa-robot me-2"></i>Robotique
                                 </span>
                             </div>
                             <div class="col-auto">
                                 <span class="badge bg-info-light px-3 py-2 rounded-pill text-info fw-semibold">
                                     <i class="fas fa-cogs me-2"></i>Automatisation
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="badge bg-secondary-light px-3 py-2 rounded-pill text-secondary fw-semibold">
+                                    <i class="fas fa-network-wired me-2"></i>Infrastructures
                                 </span>
                             </div>
                         </div>
@@ -557,7 +798,9 @@
             
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Code.png" alt="Développement logiciel sur mesure - Applications web et mobiles Pératsim Innovation" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="service-content">
@@ -573,14 +816,18 @@
                             <li>Systèmes de gestion de données</li>
                             <li>Intégrations et API sur mesure</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>En savoir plus
+                        </a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Inteligence.png" alt="Solutions de cybersécurité avancées - Protection des données et infrastructures" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="service-content">
@@ -596,37 +843,45 @@
                             <li>Formation cybersécurité des équipes</li>
                             <li>Conformité et gouvernance sécurité</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>En savoir plus
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Robotic.png" alt="Solutions robotiques et infrastructures automatisées - Pératsim Innovation expertise en robotique industrielle" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="service-content">
                         <div class="bg-warning text-white rounded-3 p-3 mb-4 service-icon">
-                            <i class="fas fa-network-wired fa-2x" aria-hidden="true"></i>
+                            <i class="fas fa-robot fa-2x" aria-hidden="true"></i>
                         </div>
-                        <h3 class="mb-3">Infrastructures Réseaux</h3>
-                        <p class="mb-4">Nous concevons, installons et maintenons vos infrastructures réseaux et télécommunications pour assurer une connectivité performante et sécurisée.</p>
+                        <h3 class="mb-3">Automatisation & Robotique</h3>
+                        <p class="mb-4">Nous développons et déployons des solutions d'automatisation et de robotique pour optimiser vos processus industriels et agricoles avec des technologies de pointe.</p>
                         <ul class="sector-features">
                             <li>Robots industriels et collaboratifs</li>
                             <li>Drones pour inspection et surveillance</li>
                             <li>Systèmes robotisés sur mesure</li>
-                            <li>Maintenance et formation</li>
-                            <li>Solutions robotiques pour l'agriculture</li>
+                            <li>Solutions d'automatisation des processus</li>
+                            <li>Robotique pour l'agriculture de précision</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>En savoir plus
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Marketing.png" alt="Consulting et stratégie digitale - Pératsim Innovation accompagnement transformation numérique" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="service-content">
@@ -642,14 +897,18 @@
                             <li>Accompagnement stratégique</li>
                             <li>Conseil en cybersécurité et infrastructures</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>En savoir plus
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="row align-items-center service-item">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Formation.png" alt="Formation et accompagnement - Pératsim Innovation programmes de formation en technologies avancées" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="service-content">
@@ -665,7 +924,36 @@
                             <li>Support utilisateurs</li>
                             <li>Ateliers pratiques et formations sur mesure</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">En savoir plus</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>En savoir plus
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center service-item">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="feature-img">
+                        <img src="Assets/Hero.png" alt="Infrastructures réseaux et télécommunications - Solutions réseau professionnelles" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-content">
+                        <div class="bg-secondary text-white rounded-3 p-3 mb-4 service-icon">
+                            <i class="fas fa-network-wired fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="mb-3">Infrastructures Réseaux</h3>
+                        <p class="mb-4">Nous concevons, installons et maintenons vos infrastructures réseaux et télécommunications pour assurer une connectivité performante et sécurisée.</p>
+                        <ul class="sector-features">
+                            <li>Conception et déploiement de réseaux LAN/WAN</li>
+                            <li>Infrastructures de télécommunications</li>
+                            <li>Sécurisation des réseaux d'entreprise</li>
+                            <li>Maintenance et supervision réseau</li>
+                            <li>Solutions WiFi professionnelles</li>
+                        </ul>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>En savoir plus
+                        </a>
                     </div>
                 </div>
             </div>
@@ -710,10 +998,10 @@
                     <div class="card h-100 border-0 shadow-sm expertise-card">
                         <div class="card-body text-center p-4">
                             <div class="expertise-icon">
-                                <i class="fas fa-broadcast-tower"></i>
+                                <i class="fas fa-robot"></i>
                             </div>
-                            <h4 class="card-title mb-3">Infrastructures Réseaux</h4>
-                            <p class="text-muted">Conception, déploiement et maintenance d'infrastructures réseau performantes et sécurisées pour entreprises.</p>
+                            <h4 class="card-title mb-3">Intelligence Artificielle</h4>
+                            <p class="text-muted">Solutions d'IA personnalisées, apprentissage automatique, analyse prédictive et automatisation intelligente pour optimiser vos processus.</p>
                         </div>
                     </div>
                 </div>
@@ -799,8 +1087,8 @@
             </div>
             
             <div class="text-center mt-5">
-                <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-5">
-                    <i class="fas fa-arrow-right me-2"></i>Démarrer votre projet
+                <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20d%C3%A9marrer%20un%20projet." target="_blank" class="btn btn-primary btn-lg rounded-pill px-5">
+                    <i class="fab fa-whatsapp me-2"></i>Démarrer votre projet
                 </a>
             </div>
         </div>
@@ -817,7 +1105,9 @@
             
             <div class="row align-items-center sector-item">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Industrie.png" alt="Solutions industrielles et automatisation - Pératsim Innovation technologies pour l'industrie manufacturiere" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="sector-content">
@@ -836,14 +1126,18 @@
                             <li>Gestion intelligente des stocks</li>
                             <li>Robots industriels collaboratifs</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour l'industrie</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20solutions%20pour%20l%27industrie." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>Solutions pour l'industrie
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="row align-items-center sector-item">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Agro.png" alt="Solutions agroalimentaires - Pératsim Innovation technologies pour l'industrie alimentaire et transformation" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="sector-content">
@@ -862,14 +1156,18 @@
                             <li>Prédiction des rendements</li>
                             <li>Logistique et supply chain optimisées</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour l'agroalimentaire</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20solutions%20pour%20l%27agroalimentaire." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>Solutions pour l'agroalimentaire
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="row align-items-center sector-item">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Agriculture.png" alt="Solutions agricoles intelligentes - Pératsim Innovation agriculture de précision et technologies agricoles" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="sector-content">
@@ -888,14 +1186,18 @@
                             <li>Gestion intelligente des exploitations</li>
                             <li>Solutions pour l'agriculture urbaine</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour l'agriculture</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20solutions%20pour%20l%27agriculture." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>Solutions pour l'agriculture
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="row align-items-center sector-item">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <div class="feature-img"></div>
+                    <div class="feature-img">
+                        <img src="Assets/Water.png" alt="Solutions de gestion de l'eau - Pératsim Innovation technologies pour la gestion des ressources hydriques" loading="lazy">
+                    </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="sector-content">
@@ -914,7 +1216,9 @@
                             <li>Traitement et purification de l'eau</li>
                             <li>Prédiction de la demande en eau</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-primary mt-3">Solutions pour la gestion de l'eau</a>
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20solutions%20pour%20la%20gestion%20de%20l%27eau." target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="fab fa-whatsapp me-2"></i>Solutions pour la gestion de l'eau
+                        </a>
                     </div>
                 </div>
             </div>
@@ -935,7 +1239,7 @@
                 <div class="col-lg-8 mx-auto">
                     <div class="card shadow-lg border-0">
                         <div class="card-body p-5">
-                            <form>
+                            <form id="whatsappForm">
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Nom complet</label>
@@ -971,7 +1275,13 @@
                                         <textarea class="form-control" id="message" rows="5" placeholder="Décrivez votre projet ou demande..." required></textarea>
                                     </div>
                                     <div class="col-12 text-center mt-4">
-                                        <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Envoyer le message</button>
+                                        <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">
+                                            <i class="fab fa-whatsapp me-2"></i>Envoyer via WhatsApp
+                                        </button>
+                                        <p class="text-muted mt-2 small">
+                                            <i class="fas fa-info-circle me-1"></i>
+                                            Votre message sera envoyé directement sur notre WhatsApp
+                                        </p>
                                     </div>
                                 </div>
                             </form>
@@ -995,7 +1305,11 @@
                         <i class="fas fa-phone fa-2x text-warning"></i>
                         <div>
                             <h5>Téléphone</h5>
-                            <p class="mb-0">+226 74 51 18 20</p>
+                            <p class="mb-0">
+                                <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20vous%20contacter." target="_blank" class="text-white text-decoration-none">
+                                    <i class="fab fa-whatsapp me-2"></i>+226 74 55 45 09
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1024,10 +1338,10 @@
                     <h5 class="text-uppercase fw-bold mb-4">Pératsim Innovation</h5>
                     <p>Partenaire technologique complet pour votre transformation digitale. Solutions logicielles, infrastructures, cybersécurité, automatisation et conseil stratégique pour votre excellence opérationnelle.</p>
                     <div class="d-flex gap-3 mt-4">
-                        <a href="#" class="text-white" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="text-white" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
-                        <a href="#" class="text-white" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.facebook.com/peratsimInnovation" target="_blank" rel="noopener noreferrer" class="text-white social-link" aria-label="Facebook Pératsim Innovation"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white social-link" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-white social-link" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">
@@ -1059,7 +1373,9 @@
                     </address>
                     <p class="mb-2">
                         <i class="fas fa-phone me-2" aria-hidden="true"></i>
-                        +226 74 51 18 20
+                        <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20vous%20contacter." target="_blank" class="text-white text-decoration-none">
+                            <i class="fab fa-whatsapp me-2"></i>+226 74 55 45 09
+                        </a>
                     </p>
                     <p class="mb-0">
                         <i class="fas fa-envelope me-2" aria-hidden="true"></i>
@@ -1087,53 +1403,246 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </a>
 
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/22674554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20vous%20contacter." target="_blank" class="whatsapp-float" aria-label="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'flex';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
+        // Enhanced scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .animate-on-scroll').forEach(el => {
+            fadeInObserver.observe(el);
         });
-        
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow');
-                navbar.style.padding = '0.5rem 0';
-            } else {
-                navbar.classList.remove('shadow');
-                navbar.style.padding = '1rem 0';
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+
+        // Animate list items when section becomes visible
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const listItems = entry.target.querySelectorAll('.sector-features li');
+                    listItems.forEach(li => {
+                        li.classList.add('animate-in');
                     });
                 }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-content, .sector-content').forEach(section => {
+            listObserver.observe(section);
+        });
+
+        // Parallax effect for hero content
+        let ticking = false;
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+            ticking = false;
+        }
+
+        function requestParallaxUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestParallaxUpdate);
+
+        // Enhanced back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.transform = 'translateY(0)';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    if (window.pageYOffset <= 300) {
+                        backToTopButton.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Enhanced navbar scroll effect with smooth transitions
+        const navbar = document.querySelector('.navbar');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 50) {
+                navbar.classList.add('shadow');
+                navbar.style.padding = '0.5rem 0';
+                navbar.style.backdropFilter = 'blur(15px)';
+            } else {
+                navbar.classList.remove('shadow');
+                navbar.style.padding = '1rem 0';
+                navbar.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Hide/show navbar on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Smooth scrolling for anchor links with easing
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const targetPosition = targetElement.offsetTop - 80;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = Math.abs(distance) / 3; // Adaptive duration
+                    let start = null;
+
+                    function ease(t, b, c, d) {
+                        t /= d / 2;
+                        if (t < 1) return c / 2 * t * t + b;
+                        t--;
+                        return -c / 2 * (t * (t - 2) - 1) + b;
+                    }
+
+                    function animation(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const run = ease(timeElapsed, startPosition, distance, duration);
+                        window.scrollTo(0, run);
+                        if (timeElapsed < duration) requestAnimationFrame(animation);
+                    }
+                    requestAnimationFrame(animation);
+                }
+            });
+        });
+
+        // Add class to body when page is loaded for initial animations
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            // Trigger initial fade-in animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }, 200);
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add loading state for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+
+            window.addEventListener('load', function() {
+                document.body.style.opacity = '1';
+            });
+        });
+
+        // WhatsApp Form Handler
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Build WhatsApp message
+            let whatsappMessage = `Bonjour Pératsim Innovation,\n\n`;
+            whatsappMessage += `*Nouvelle demande de contact :*\n\n`;
+            whatsappMessage += `👤 *Nom :* ${name}\n`;
+            whatsappMessage += `📧 *Email :* ${email}\n`;
+
+            if (company) {
+                whatsappMessage += `🏢 *Entreprise :* ${company}\n`;
+            }
+
+            if (phone) {
+                whatsappMessage += `📱 *Téléphone :* ${phone}\n`;
+            }
+
+            if (service !== 'Sélectionnez un service...') {
+                whatsappMessage += `🎯 *Service souhaité :* ${service}\n`;
+            }
+
+            whatsappMessage += `\n💬 *Message :*\n${message}\n\n`;
+            whatsappMessage += `_Envoyé depuis peratsim.com_`;
+
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // Open WhatsApp
+            const whatsappURL = `https://wa.me/22674554509?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+
+            // Optional: Show success message and reset form
+            alert('Redirection vers WhatsApp... Votre message a été préparé automatiquement !');
+            this.reset();
+        });
+
+        // Add animation to WhatsApp button on scroll
+        window.addEventListener('scroll', function() {
+            const whatsappBtn = document.querySelector('.whatsapp-float');
+            if (window.pageYOffset > 300) {
+                whatsappBtn.style.transform = 'scale(1)';
+                whatsappBtn.style.opacity = '1';
+            } else {
+                whatsappBtn.style.transform = 'scale(0.8)';
+                whatsappBtn.style.opacity = '0.8';
+            }
         });
     </script>
 </body>
