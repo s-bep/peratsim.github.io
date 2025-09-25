@@ -1,0 +1,5 @@
+Contact: mailto:contact@peratsim.com
+Expires: 2026-12-31T23:59:59.000Z
+Acknowledgments: https://www.peratsim.com
+Preferred-Languages: fr, en
+Canonical: https://www.peratsim.com/.well-known/security.txt

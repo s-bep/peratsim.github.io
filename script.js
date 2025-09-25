@@ -33,145 +33,127 @@ document.querySelectorAll('.service-content, .sector-content').forEach(section =
     listObserver.observe(section);
 });
 
-// Parallax effect for hero content
-let ticking = false;
-function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
-    }
-    ticking = false;
-}
-
-function requestParallaxUpdate() {
-    if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
-}
-
-window.addEventListener('scroll', requestParallaxUpdate);
-
-// Enhanced back to top button
+// Variables globales pour optimisation
+const navbar = document.querySelector('.navbar');
 const backToTopButton = document.querySelector('.back-to-top');
+const heroContent = document.querySelector('.hero-content');
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.style.display = 'flex';
-        backToTopButton.style.opacity = '1';
-        backToTopButton.style.transform = 'translateY(0)';
-    } else {
-        backToTopButton.style.opacity = '0';
-        backToTopButton.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            if (window.pageYOffset <= 300) {
-                backToTopButton.style.display = 'none';
+let lastScrollY = window.scrollY;
+let backToTopVisible = false;
+let scrollTicking = false;
+
+// Gestionnaire unique et optimisé pour le scroll
+function handleScroll() {
+    if (!scrollTicking) {
+        requestAnimationFrame(() => {
+            const currentScrollY = window.scrollY;
+
+            // Parallax effet
+            if (heroContent && currentScrollY < window.innerHeight) {
+                heroContent.style.transform = `translateY(${currentScrollY * 0.1}px)`;
             }
-        }, 300);
-    }
-});
 
+            // Back to top button
+            const shouldShow = currentScrollY > 300;
+            if (shouldShow && !backToTopVisible) {
+                backToTopVisible = true;
+                backToTopButton.style.display = 'flex';
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.transform = 'translateY(0)';
+            } else if (!shouldShow && backToTopVisible) {
+                backToTopVisible = false;
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    if (!backToTopVisible) {
+                        backToTopButton.style.display = 'none';
+                    }
+                }, 150);
+            }
+
+            // Navbar handling
+            if (currentScrollY > 50) {
+                navbar.classList.add('shadow');
+                navbar.style.padding = '0.5rem 0';
+                navbar.style.backdropFilter = 'blur(15px)';
+            } else {
+                navbar.classList.remove('shadow');
+                navbar.style.padding = '1rem 0';
+                navbar.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Navbar reste toujours visible
+            navbar.style.transform = 'translateY(0)';
+
+            lastScrollY = currentScrollY;
+            scrollTicking = false;
+        });
+        scrollTicking = true;
+    }
+}
+
+// Event listener unique
+window.addEventListener('scroll', handleScroll, { passive: true });
+
+// Back to top click
 backToTopButton.addEventListener('click', (e) => {
     e.preventDefault();
-    // Scroll instantané vers le haut
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
 });
 
-// Enhanced navbar scroll effect with smooth transitions
-const navbar = document.querySelector('.navbar');
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > 50) {
-        navbar.classList.add('shadow');
-        navbar.style.padding = '0.5rem 0';
-        navbar.style.backdropFilter = 'blur(15px)';
-    } else {
-        navbar.classList.remove('shadow');
-        navbar.style.padding = '1rem 0';
-        navbar.style.backdropFilter = 'blur(10px)';
-    }
-
-    // Hide/show navbar on scroll
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
-    }
-
-    lastScrollY = currentScrollY;
-});
-
-// Smooth scrolling for anchor links with easing
+// Navigation instantanée
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        if (targetId === '#') {
+            window.scrollTo(0, 0);
+            return;
+        }
 
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            const targetPosition = targetElement.offsetTop - 80;
-            const startPosition = window.pageYOffset;
-            const distance = targetPosition - startPosition;
-            const duration = Math.abs(distance) / 3; // Adaptive duration
-            let start = null;
-
-            function ease(t, b, c, d) {
-                t /= d / 2;
-                if (t < 1) return c / 2 * t * t + b;
-                t--;
-                return -c / 2 * (t * (t - 2) - 1) + b;
-            }
-
-            function animation(currentTime) {
-                if (start === null) start = currentTime;
-                const timeElapsed = currentTime - start;
-                const run = ease(timeElapsed, startPosition, distance, duration);
-                window.scrollTo(0, run);
-                if (timeElapsed < duration) requestAnimationFrame(animation);
-            }
-            requestAnimationFrame(animation);
+            window.scrollTo(0, targetElement.offsetTop - 80);
         }
     });
 });
 
-// Add class to body when page is loaded for initial animations
+// Optimisation du chargement initial
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.3s ease';
+});
+
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    // Trigger initial fade-in animations
+    document.body.style.opacity = '1';
+
+    // Animation différée mais plus rapide
     setTimeout(() => {
         document.querySelectorAll('.fade-in').forEach((el, index) => {
             setTimeout(() => {
                 el.classList.add('visible');
-            }, index * 100);
+            }, index * 50);
         });
-    }, 200);
+    }, 100);
 });
 
-// Enhanced button interactions
+// Interactions boutons optimisées
 document.querySelectorAll('.btn').forEach(button => {
+    let isHovered = false;
+
     button.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-2px) scale(1.02)';
+        if (!isHovered) {
+            isHovered = true;
+            this.style.transform = 'translateY(-2px) scale(1.02)';
+        }
     });
 
     button.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Add loading state for better UX
-document.addEventListener('DOMContentLoaded', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in-out';
-
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '1';
+        if (isHovered) {
+            isHovered = false;
+            this.style.transform = 'translateY(0) scale(1)';
+        }
     });
 });
 

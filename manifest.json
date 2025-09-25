@@ -1,0 +1,35 @@
+{
+  "name": "Pératsim Innovation - Solutions IA & Automatisation",
+  "short_name": "Pératsim",
+  "description": "Partenaire technologique spécialisé en Intelligence Artificielle, développement logiciel, cybersécurité et automatisation au Burkina Faso",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1e4d8b",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "Assets/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Logo Peratsim Innovation.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["technology", "business", "productivity"],
+  "screenshots": [
+    {
+      "src": "Assets/Hero.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}

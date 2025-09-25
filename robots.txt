@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+Disallow: /Assets/
+Allow: /Assets/*.png
+Allow: /Assets/*.jpg
+Allow: /Assets/*.svg
+Allow: /Assets/*.webp
+
+# Sitemap
+Sitemap: https://www.peratsim.com/sitemap.xml
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
+
+# Spécifications pour les principaux moteurs
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
