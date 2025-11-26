@@ -1,7 +1,7 @@
 // Enhanced scroll-triggered animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -10px 0px'
 };
 
 const fadeInObserver = new IntersectionObserver((entries) => {
@@ -13,8 +13,10 @@ const fadeInObserver = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all fade-in elements
-document.querySelectorAll('.fade-in, .animate-on-scroll').forEach(el => {
-    fadeInObserver.observe(el);
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.fade-in, .animate-on-scroll').forEach(el => {
+        fadeInObserver.observe(el);
+    });
 });
 
 // Animate list items when section becomes visible
@@ -128,14 +130,17 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
     document.body.style.opacity = '1';
 
-    // Animation différée mais plus rapide
-    setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach((el, index) => {
+    // Animer immédiatement les éléments visibles au chargement
+    const viewportHeight = window.innerHeight;
+    document.querySelectorAll('.fade-in').forEach((el, index) => {
+        const rect = el.getBoundingClientRect();
+        // Si l'élément est dans le viewport au chargement
+        if (rect.top < viewportHeight && rect.bottom > 0) {
             setTimeout(() => {
                 el.classList.add('visible');
-            }, index * 50);
-        });
-    }, 100);
+            }, index * 100);
+        }
+    });
 });
 
 // Interactions boutons optimisées
@@ -153,6 +158,63 @@ document.querySelectorAll('.btn').forEach(button => {
         if (isHovered) {
             isHovered = false;
             this.style.transform = 'translateY(0) scale(1)';
+        }
+    });
+});
+
+// Cookie Consent Management
+function checkCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+        // Afficher la bannière après 2 secondes
+        setTimeout(() => {
+            document.getElementById('cookieConsent').style.display = 'block';
+        }, 2000);
+    }
+}
+
+function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookieConsent').style.display = 'none';
+
+    // Push event to dataLayer
+    if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+            'event': 'cookie_consent',
+            'consent_status': 'accepted'
+        });
+    }
+}
+
+function declineCookies() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookieConsent').style.display = 'none';
+
+    // Push event to dataLayer
+    if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+            'event': 'cookie_consent',
+            'consent_status': 'declined'
+        });
+    }
+
+    // Optionnellement, désactiver les cookies tiers
+    console.log('Cookies analytiques désactivés');
+}
+
+// Vérifier le consentement au chargement
+window.addEventListener('load', checkCookieConsent);
+
+// Track WhatsApp clicks
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        // Push event to dataLayer for Google Tag Manager
+        if (typeof window.dataLayer !== 'undefined') {
+            window.dataLayer.push({
+                'event': 'whatsapp_click',
+                'link_text': this.textContent.trim(),
+                'link_url': this.href
+            });
         }
     });
 });
@@ -192,6 +254,15 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 
     // Encode message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Push form submission to dataLayer
+    if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+            'event': 'form_submission',
+            'form_type': 'contact_whatsapp',
+            'service_requested': service
+        });
+    }
 
     // Open WhatsApp
     const whatsappURL = `https://wa.me/22677554509?text=${encodedMessage}`;
