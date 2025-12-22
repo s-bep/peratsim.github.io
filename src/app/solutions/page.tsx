@@ -8,7 +8,7 @@ import Badge from '@/components/Badge';
 
 export const metadata: Metadata = {
   title: 'Solutions',
-  description: 'Solutions IA spécialisées par secteur d\'activité.',
+  description: 'Solutions IA spécialisées par secteur d&apos;activité.',
 };
 
 const sectors = [

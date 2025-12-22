@@ -19,7 +19,7 @@ export default function PricingPage() {
       price: 2999,
       features: [
         'Consultation initiale gratuite',
-        'Jusqu\'à 3 projets IA simples',
+        'Jusqu&apos;à 3 projets IA simples',
         'Support email',
         'Accès à la documentation',
         'Rapports mensuels',

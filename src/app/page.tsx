@@ -9,7 +9,7 @@ import Badge from '@/components/Badge';
 export const metadata: Metadata = {
   title: 'Accueil',
   description:
-    'Transformez votre vision en réalité avec nos solutions premium d\'Intelligence Artificielle et automatisation.',
+    'Transformez votre vision en réalité avec nos solutions premium d&apos;Intelligence Artificielle et automatisation.',
 };
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
     {
       icon: Cpu,
       title: 'Intelligence Artificielle',
-      description: 'Solutions IA avancées pour l\'optimisation des processus et la prise de décision intelligente.',
+      description: 'Solutions IA avancées pour l&apos;optimisation des processus et la prise de décision intelligente.',
     },
     {
       icon: Shield,
@@ -37,12 +37,12 @@ export default function Home() {
     {
       icon: TrendingUp,
       title: 'Optimisation',
-      description: 'Augmentez vos performances avec l\'analyse de données et la prédiction intelligente.',
+      description: 'Augmentez vos performances avec l&apos;analyse de données et la prédiction intelligente.',
     },
     {
       icon: Globe,
       title: 'Solutions Globales',
-      description: 'Expertise internationale adaptée à votre contexte local et secteur d\'activité.',
+      description: 'Expertise internationale adaptée à votre contexte local et secteur d&apos;activité.',
     },
   ];
 
