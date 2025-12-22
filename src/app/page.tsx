@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { ArrowRight, Code, Shield, Zap, Cpu, BookOpen, Network, Check } from 'lucide-react';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
@@ -196,6 +197,8 @@ export default function Home() {
       description: 'Formation de vos équipes et support continu pour optimiser l\'adoption',
     },
   ];
+
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   const faqItems = [
     {
