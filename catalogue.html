@@ -3,839 +3,1033 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pératsim - Catalogue Professionnel</title>
+    <title>Catalogue Professionnel | Solutions Électriques & Numériques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            --white: #ffffff;
-            --border: 1px solid var(--gray-200);
-            --radius: 8px;
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --primary: #1a365d;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--white);
-            color: var(--gray-900);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
             line-height: 1.6;
-            font-weight: 400;
         }
-
+        
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
-
+        
         /* Header */
-        .header {
-            background: var(--white);
-            border-bottom: var(--border);
-            padding: 40px 0;
+        header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
+        
         .header-content {
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .subtitle {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Main Layout */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 32px;
-            padding: 48px 0;
-        }
-
-        @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Cards */
-        .card {
-            background: var(--white);
-            border: var(--border);
-            border-radius: var(--radius);
-            padding: 32px;
-            margin-bottom: 32px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: var(--border);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gray-900);
-        }
-
-        .badge {
-            background: var(--primary);
-            color: var(--white);
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .product-card {
-            border: var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-            transition: all 0.2s ease;
-            background: var(--white);
-        }
-
-        .product-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-
-        .product-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 16px;
-        }
-
-        .product-name {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-        }
-
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .product-description {
-            color: var(--gray-600);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .features {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .features li {
-            padding: 6px 0;
-            color: var(--gray-600);
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .features li:before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            color: var(--primary);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            border-radius: var(--radius);
-            font-weight: 500;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn-outline {
-            background: var(--white);
-            border: var(--border);
-            color: var(--gray-700);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        /* Cart */
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: var(--border);
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--gray-900);
-        }
-
-        .cart-items {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 24px;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .item-info {
-            flex: 1;
-        }
-
-        .item-name {
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .item-price {
-            color: var(--gray-600);
-            font-size: 0.875rem;
-        }
-
-        .item-controls {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .quantity-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
-            border: var(--border);
-            background: var(--white);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .quantity-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .quantity {
-            min-width: 40px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .cart-total {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            border-top: var(--border);
-            font-size: 1.125rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
             font-weight: 600;
         }
-
-        .empty-cart {
+        
+        .phone i {
+            color: var(--secondary);
+        }
+        
+        /* Catalogue Grid */
+        .catalogue-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
             text-align: center;
-            padding: 48px 24px;
-            color: var(--gray-500);
+            margin-bottom: 50px;
         }
-
-        /* Form */
-        .form-group {
-            margin-bottom: 20px;
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--gray-700);
-            font-size: 0.875rem;
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: var(--border);
-            border-radius: var(--radius);
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            background: var(--white);
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-row {
+        
+        .sectors-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
         }
-
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            background: #25D366;
-            color: var(--white);
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E;
-        }
-
-        /* Service List */
-        .service-list {
+        
+        .sector-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
         }
-
-        .service-item {
+        
+        .sector-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sector-icon {
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .sector-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sector-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .sector-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .sector-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .view-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .view-btn:hover {
+            background: var(--secondary);
+        }
+        
+        /* Fiche Produit (masquée par défaut) */
+        .product-detail {
+            display: none;
+            padding: 60px 0;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        
+        .back-btn {
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .back-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .product-title {
+            flex-grow: 1;
+            text-align: center;
+        }
+        
+        .product-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .product-info {
+            padding-right: 20px;
+        }
+        
+        .product-description {
+            margin-bottom: 40px;
+        }
+        
+        .product-description h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .product-features {
+            margin-bottom: 40px;
+        }
+        
+        .product-features ul {
+            list-style: none;
+        }
+        
+        .product-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .product-features li i {
+            color: var(--success);
+        }
+        
+        /* Prix & Options */
+        .pricing-options {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .pricing-options h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .price-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+            transition: var(--transition);
+        }
+        
+        .price-item:hover {
+            border-color: var(--secondary);
+        }
+        
+        .price-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            border: var(--border);
-            border-radius: var(--radius);
+            margin-bottom: 15px;
         }
-
-        .service-info h4 {
-            font-weight: 500;
-            margin-bottom: 4px;
+        
+        .price-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
         }
-
-        .service-info p {
-            color: var(--gray-600);
-            font-size: 0.875rem;
+        
+        .price-tag {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
-
-        /* Footer */
-        .footer {
-            background: var(--gray-50);
-            border-top: var(--border);
-            padding: 40px 0;
-            margin-top: 48px;
+        
+        .price-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
         }
-
-        .footer-content {
+        
+        .case-by-case {
+            background: #f0f9ff;
+            border-color: var(--secondary);
+        }
+        
+        /* Formulaire Devis */
+        .quote-form {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .quote-form h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
             text-align: center;
-            color: var(--gray-600);
         }
-
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);
+        }
+        
+        .form-note {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
         /* Responsive */
+        @media (max-width: 992px) {
+            .product-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .product-info {
+                padding-right: 0;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
             
-            .card {
-                padding: 24px;
+            .contact-header {
+                flex-direction: column;
+                gap: 15px;
             }
             
-            .product-grid {
+            .sectors-grid {
                 grid-template-columns: 1fr;
             }
             
-            .main-grid {
-                gap: 24px;
-                padding: 32px 0;
+            .product-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .back-btn {
+                align-self: flex-start;
             }
         }
-
-        /* Utility Classes */
-        .text-sm {
-            font-size: 0.875rem;
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .text-gray {
-            color: var(--gray-600);
-        }
-        
-        .mb-4 {
-            margin-bottom: 16px;
-        }
-        
-        .mt-4 {
-            margin-top: 16px;
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <!-- Header -->
+    <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Pératsim</div>
-                <p class="subtitle">Services de développement web et mobile professionnels</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="main-grid">
-            <!-- Products Column -->
-            <div class="products-column">
-                <!-- Packs Section -->
-                <div class="card">
-                    <div class="section-header">
-                        <h2>Packs Solutions</h2>
-                        <div class="badge">Recommandé</div>
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">Pack Essentiel</div>
-                                <div class="product-price">180 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Solution complète pour démarrer votre présence en ligne avec un site professionnel.</p>
-                            <ul class="features">
-                                <li>Landing page responsive</li>
-                                <li>Site vitrine 3 pages</li>
-                                <li>Hébergement 3 mois</li>
-                                <li>Formation utilisateur</li>
-                            </ul>
-                            <button class="btn btn-primary" onclick="addToCart('Pack Essentiel', 180000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">Pack Business</div>
-                                <div class="product-price">450 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Solution complète pour les PME avec fonctionnalités avancées.</p>
-                            <ul class="features">
-                                <li>Site multi-pages</li>
-                                <li>Système de blog</li>
-                                <li>Optimisation SEO</li>
-                                <li>Support technique</li>
-                            </ul>
-                            <button class="btn btn-primary" onclick="addToCart('Pack Business', 450000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">Pack Enterprise</div>
-                                <div class="product-price">1 500 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Solution sur mesure pour les projets complexes et exigeants.</p>
-                            <ul class="features">
-                                <li>Web App / SaaS</li>
-                                <li>Plateforme e-commerce</li>
-                                <li>API personnalisée</li>
-                                <li>Support prioritaire</li>
-                            </ul>
-                            <button class="btn btn-primary" onclick="addToCart('Pack Enterprise', 1500000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
+                    <div class="logo-text">
+                        <h1>Solutions Pro</h1>
+                        <p>Électricité • Automatisme • Développement</p>
                     </div>
                 </div>
-
-                <!-- Services Section -->
-                <div class="card">
-                    <div class="section-header">
-                        <h2>Services à la Carte</h2>
-                        <div class="badge">Flexible</div>
-                    </div>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">Landing Page</div>
-                                <div class="product-price">120 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Page d'atterrissage optimisée pour conversions avec design moderne.</p>
-                            <button class="btn btn-primary" onclick="addToCart('Landing Page', 120000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">Site Vitrine</div>
-                                <div class="product-price">250 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Site vitrine avec système de gestion de contenu intégré.</p>
-                            <button class="btn btn-primary" onclick="addToCart('Site Vitrine', 250000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">E-commerce</div>
-                                <div class="product-price">450 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Boutique en ligne complète avec gestion des produits et paiements.</p>
-                            <button class="btn btn-primary" onclick="addToCart('E-commerce', 450000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="product-name">Application Mobile</div>
-                                <div class="product-price">700 000 FCFA</div>
-                            </div>
-                            <p class="product-description">Application cross-platform compatible Android et iOS.</p>
-                            <button class="btn btn-primary" onclick="addToCart('Application Mobile', 700000)">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional Services -->
-                <div class="card">
-                    <div class="section-header">
-                        <h2>Services Complémentaires</h2>
-                    </div>
-                    <div class="service-list">
-                        <div class="service-item">
-                            <div class="service-info">
-                                <h4>Design UX/UI</h4>
-                                <p>Wireframes, maquettes et prototypage</p>
-                            </div>
-                            <button class="btn btn-outline" onclick="addToCart('Design UX/UI', 120000)">
-                                Ajouter
-                            </button>
-                        </div>
-
-                        <div class="service-item">
-                            <div class="service-info">
-                                <h4>Audit Sécurité</h4>
-                                <p>Évaluation complète et rapport détaillé</p>
-                            </div>
-                            <button class="btn btn-outline" onclick="addToCart('Audit Sécurité', 250000)">
-                                Ajouter
-                            </button>
-                        </div>
-
-                        <div class="service-item">
-                            <div class="service-info">
-                                <h4>Hébergement VPS</h4>
-                                <p>3 mois avec sauvegardes et SSL</p>
-                            </div>
-                            <button class="btn btn-outline" onclick="addToCart('Hébergement VPS', 45000)">
-                                Ajouter
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cart Sidebar -->
-            <div class="cart-sidebar">
-                <div class="card">
-                    <div class="cart-header">
-                        <h3>Votre Commande</h3>
-                        <button class="btn btn-outline" onclick="clearCart()">Vider</button>
-                    </div>
-
-                    <div class="cart-items" id="cartItems">
-                        <div class="empty-cart" id="emptyCart">
-                            <p>Votre panier est vide</p>
-                            <p class="text-sm text-gray mt-4">Ajoutez des services pour commencer</p>
-                        </div>
-                    </div>
-
-                    <div class="cart-total" id="cartTotal" style="display: none;">
-                        <span>Total</span>
-                        <span id="totalAmount">0 FCFA</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="mb-4">Informations Client</h3>
-                    
-                    <div class="form-group">
-                        <label for="clientName">Nom Complet</label>
-                        <input type="text" id="clientName" placeholder="Votre nom complet">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="clientPhone">Téléphone</label>
-                            <input type="tel" id="clientPhone" placeholder="+226 XX XX XX XX">
-                        </div>
-                        <div class="form-group">
-                            <label for="clientEmail">Email</label>
-                            <input type="email" id="clientEmail" placeholder="email@exemple.com">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="projectDescription">Description du Projet</label>
-                        <textarea id="projectDescription" rows="3" placeholder="Décrivez votre projet..."></textarea>
-                    </div>
-
-                    <button class="btn whatsapp-btn" onclick="sendWhatsApp()">
-                        Envoyer sur WhatsApp
-                    </button>
-
-                    <p class="text-sm text-gray mt-4" style="text-align: center;">
-                        Nous vous contacterons pour finaliser votre projet
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3 class="mb-4">Contact</h3>
-                    <div class="text-sm text-gray">
-                        <p style="margin-bottom: 8px;"><strong>Email:</strong> contact@peratsim.com</p>
-                        <p style="margin-bottom: 12px;"><strong>Téléphone:</strong> +226 77 45 15 09</p>
-                        <p>Basé au Burkina Faso</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>© 2024 Pératsim Innovation. Tous droits réservés.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Cart Management
-        let cart = JSON.parse(localStorage.getItem('peratsim_cart')) || [];
-
-        function saveCart() {
-            localStorage.setItem('peratsim_cart', JSON.stringify(cart));
-        }
-
-        function addToCart(name, price) {
-            const existingItem = cart.find(item => item.name === name);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    name: name,
-                    price: price,
-                    quantity: 1
-                });
-            }
-            
-            saveCart();
-            updateCartDisplay();
-            showNotification(`${name} ajouté au panier`);
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            saveCart();
-            updateCartDisplay();
-        }
-
-        function updateQuantity(index, change) {
-            const item = cart[index];
-            item.quantity += change;
-            
-            if (item.quantity <= 0) {
-                removeFromCart(index);
-            } else {
-                saveCart();
-                updateCartDisplay();
-            }
-        }
-
-        function clearCart() {
-            if (cart.length === 0) return;
-            
-            if (confirm('Vider le panier ?')) {
-                cart = [];
-                saveCart();
-                updateCartDisplay();
-            }
-        }
-
-        function updateCartDisplay() {
-            const cartItems = document.getElementById('cartItems');
-            const emptyCart = document.getElementById('emptyCart');
-            const cartTotal = document.getElementById('cartTotal');
-            const totalAmount = document.getElementById('totalAmount');
-            
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                emptyCart.style.display = 'block';
-                cartTotal.style.display = 'none';
-                return;
-            }
-            
-            emptyCart.style.display = 'none';
-            cartTotal.style.display = 'flex';
-            
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
                 
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <div class="item-info">
-                        <div class="item-name">${item.name}</div>
-                        <div class="item-price">${formatCurrency(item.price)} × ${item.quantity}</div>
+                <div class="contact-header">
+                    <div class="phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>01 23 45 67 89</span>
                     </div>
-                    <div class="item-controls">
-                        <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">−</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
-                        <button class="quantity-btn" onclick="removeFromCart(${index})" style="margin-left: 8px;">×</button>
+                    <div class="email">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@solutions-pro.fr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Catalogue Principal -->
+    <section class="catalogue-section" id="catalogue">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Secteurs d'Expertise</h2>
+                <p>Cliquez sur un secteur pour découvrir nos services détaillés, nos tarifs et demander un devis personnalisé</p>
+            </div>
+            
+            <div class="sectors-grid">
+                <!-- Électricité -->
+                <div class="sector-card" data-sector="electricite">
+                    <div class="sector-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <div class="sector-content">
+                        <h3>Électricité</h3>
+                        <p>Installations complètes, mises aux normes, tableaux électriques et solutions énergétiques pour professionnels et particuliers.</p>
+                        <div class="sector-stats">
+                            <span><i class="far fa-clock"></i> Intervention 24h/24</span>
+                            <span><i class="fas fa-certificate"></i> Certifié RGE</span>
+                        </div>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i> Voir les services
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Automatisme -->
+                <div class="sector-card" data-sector="automatisme">
+                    <div class="sector-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="sector-content">
+                        <h3>Automatisme Industriel</h3>
+                        <p>Automatisation de processus industriels, programmation d'automates, supervision et maintenance préventive.</p>
+                        <div class="sector-stats">
+                            <span><i class="fas fa-industry"></i> Industries</span>
+                            <span><i class="fas fa-microchip"></i> Siemens/Schneider</span>
+                        </div>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i> Voir les services
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Domotique -->
+                <div class="sector-card" data-sector="domotique">
+                    <div class="sector-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="sector-content">
+                        <h3>Domotique & GTB</h3>
+                        <p>Maisons connectées, gestion technique de bâtiment, contrôle centralisé et optimisation énergétique.</p>
+                        <div class="sector-stats">
+                            <span><i class="fas fa-mobile-alt"></i> Contrôle mobile</span>
+                            <span><i class="fas fa-leaf"></i> Économies d'énergie</span>
+                        </div>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i> Voir les services
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Sécurité -->
+                <div class="sector-card" data-sector="securite">
+                    <div class="sector-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="sector-content">
+                        <h3>Sécurité & Surveillance</h3>
+                        <p>Vidéosurveillance IP, contrôle d'accès, alarmes intrusion et solutions de sécurité intégrées.</p>
+                        <div class="sector-stats">
+                            <span><i class="fas fa-video"></i> Caméras 4K</span>
+                            <span><i class="fas fa-user-shield"></i> Accès biométrique</span>
+                        </div>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i> Voir les services
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Développement Web -->
+                <div class="sector-card" data-sector="web">
+                    <div class="sector-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="sector-content">
+                        <h3>Développement Web</h3>
+                        <p>Sites vitrines, e-commerce, applications web sur mesure, hébergement et maintenance.</p>
+                        <div class="sector-stats">
+                            <span><i class="fas fa-shopping-cart"></i> E-commerce</span>
+                            <span><i class="fas fa-search"></i> SEO Optimisé</span>
+                        </div>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i> Voir les services
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Développement Mobile -->
+                <div class="sector-card" data-sector="mobile">
+                    <div class="sector-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="sector-content">
+                        <h3>Applications Mobiles</h3>
+                        <p>Applications iOS et Android natives, développement cross-platform et interfaces sur mesure.</p>
+                        <div class="sector-stats">
+                            <span><i class="fab fa-apple"></i> iOS</span>
+                            <span><i class="fab fa-android"></i> Android</span>
+                        </div>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i> Voir les services
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fiche Produit (masquée initialement) -->
+    <section class="product-detail" id="product-detail">
+        <div class="container">
+            <!-- Contenu généré dynamiquement par JavaScript -->
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Solutions Pro</h3>
+            <p>Votre partenaire pour l'électricité, l'automatisme et le développement numérique</p>
+            <p>© 2023 Tous droits réservés | Devis sous 48h</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Données des services
+        const servicesData = {
+            electricite: {
+                title: "Services Électriques",
+                description: "Nous réalisons toutes vos installations électriques, de la conception à la mise en service, en garantissant sécurité et conformité aux normes en vigueur.",
+                features: [
+                    "Installation électrique complète (neuf et rénovation)",
+                    "Tableaux électriques divisionnaires et de communication",
+                    "Mise aux normes NF C15-100",
+                    "Éclairage intérieur/extérieur design et fonctionnel",
+                    "Branchements spécialisés (cuisine, salle de bain, extérieur)",
+                    "Dépannage et maintenance électrique",
+                    "Solutions d'économies d'énergie"
+                ],
+                pricing: [
+                    {
+                        title: "Diagnostic électrique",
+                        price: "150€",
+                        description: "Audit complet de votre installation avec rapport détaillé et préconisations"
+                    },
+                    {
+                        title: "Mise aux normes standard",
+                        price: "À partir de 800€",
+                        description: "Mise en conformité pour appartement jusqu'à 80m²"
+                    },
+                    {
+                        title: "Installation complète (neuf)",
+                        price: "Sur devis",
+                        description: "Installation électrique complète pour maison/appartement neuf"
+                    },
+                    {
+                        title: "Projet sur mesure",
+                        price: "Étude au cas par cas",
+                        description: "Solutions personnalisées pour besoins spécifiques (industriel, tertiaire)",
+                        special: true
+                    }
+                ]
+            },
+            
+            automatisme: {
+                title: "Automatisme Industriel",
+                description: "Automatisation de vos processus industriels avec des solutions robustes et fiables, programmation d'automates et interfaces de supervision.",
+                features: [
+                    "Programmation d'automates (Siemens, Schneider, Allen-Bradley)",
+                    "Conception de cartes électriques et pupitres de commande",
+                    "Systèmes de supervision SCADA/HMI",
+                    "Variateurs de vitesse et asservissements",
+                    "Automatismes pour machines spéciales",
+                    "Maintenance préventive et corrective",
+                    "Formation des opérateurs"
+                ],
+                pricing: [
+                    {
+                        title: "Audit process",
+                        price: "500€",
+                        description: "Analyse de vos besoins et recommandations techniques"
+                    },
+                    {
+                        title: "Programmation automate standard",
+                        price: "À partir de 1500€",
+                        description: "Programmation basique pour machine automatisée"
+                    },
+                    {
+                        title: "Système SCADA de base",
+                        price: "À partir de 3000€",
+                        description: "Interface de supervision avec visualisation processus"
+                    },
+                    {
+                        title: "Projet industriel complet",
+                        price: "Devis personnalisé",
+                        description: "Solution clé en main incluant matériel et programmation",
+                        special: true
+                    }
+                ]
+            },
+            
+            domotique: {
+                title: "Domotique & Gestion Technique de Bâtiment",
+                description: "Transformez votre habitat ou bâtiment professionnel en espace intelligent, connecté et économe en énergie.",
+                features: [
+                    "Installation de systèmes domotiques KNX, Zigbee, Z-Wave",
+                    "Contrôle centralisé éclairage/chauffage/volets",
+                    "Gestion technique de bâtiment (GTB)",
+                    "Scénarios et programmation horaire",
+                    "Contrôle à distance via smartphone/tablette",
+                    "Intégration avec systèmes de sécurité",
+                    "Optimisation énergétique"
+                ],
+                pricing: [
+                    {
+                        title: "Pack basique (studio)",
+                        price: "1200€",
+                        description: "Contrôle éclairage + chauffage pour studio jusqu'à 30m²"
+                    },
+                    {
+                        title: "Pack confort (maison)",
+                        price: "À partir de 3500€",
+                        description: "Solution complète pour maison jusqu'à 120m²"
+                    },
+                    {
+                        title: "GTB entreprise",
+                        price: "À partir de 8000€",
+                        description: "Gestion technique pour petits bâtiments professionnels"
+                    },
+                    {
+                        title: "Solution sur mesure",
+                        price: "Étude personnalisée",
+                        description: "Domotique haut de gamme avec intégration complète",
+                        special: true
+                    }
+                ]
+            },
+            
+            securite: {
+                title: "Sécurité & Vidéosurveillance",
+                description: "Protégez vos biens avec nos systèmes de sécurité intelligents et évolutifs, adaptés à vos besoins spécifiques.",
+                features: [
+                    "Installation de caméras IP 4K avec analyse vidéo",
+                    "Systèmes de contrôle d'accès biométriques et par badge",
+                    "Alarmes intrusion avec télésurveillance optionnelle",
+                    "Centrale incendie et détection de fumée",
+                    "Enregistrement numérique (NVR) avec stockage cloud",
+                    "Visionnage à distance sur mobile",
+                    "Maintenance et mises à jour"
+                ],
+                pricing: [
+                    {
+                        title: "Kit sécurité basique",
+                        price: "900€",
+                        description: "2 caméras + NVR 1To pour petite surface"
+                    },
+                    {
+                        title: "Pack sécurité complète",
+                        price: "À partir de 2500€",
+                        description: "4 caméras + alarme + contrôle d'accès pour maison"
+                    },
+                    {
+                        title: "Solution entreprise",
+                        price: "À partir de 5000€",
+                        description: "Système complet avec plusieurs zones de sécurité"
+                    },
+                    {
+                        title: "Projet spécifique",
+                        price: "Devis gratuit",
+                        description: "Solutions pour sites sensibles ou besoins particuliers",
+                        special: true
+                    }
+                ]
+            },
+            
+            web: {
+                title: "Développement Web",
+                description: "Création de sites web professionnels, optimisés pour le référencement et adaptés à tous les appareils.",
+                features: [
+                    "Sites vitrines sur mesure avec CMS personnalisé",
+                    "Boutiques en ligne (e-commerce) sécurisées",
+                    Applications web métier spécifiques",
+                    "Hébergement haute performance avec sauvegarde",
+                    "Référencement naturel (SEO) et analytics",
+                    "Formation à l'administration du site",
+                    "Maintenance et mises à jour régulières"
+                ],
+                pricing: [
+                    {
+                        title: "Site vitrine basique",
+                        price: "1500€",
+                        description: "5 pages, design responsive, formulaire de contact"
+                    },
+                    {
+                        title: "Site e-commerce",
+                        price: "À partir de 3000€",
+                        description: "Boutique en ligne avec paiement sécurisé"
+                    },
+                    {
+                        title: "Application web sur mesure",
+                        price: "À partir de 5000€",
+                        description: "Développement spécifique avec fonctionnalités avancées"
+                    },
+                    {
+                        title: "Projet complexe",
+                        price: "Devis après étude",
+                        description: "Solutions web avec intégrations spécifiques",
+                        special: true
+                    }
+                ]
+            },
+            
+            mobile: {
+                title: "Développement d'Applications Mobiles",
+                description: "Applications natives et cross-platform performantes pour iOS et Android, adaptées à votre activité.",
+                features: [
+                    "Applications natives iOS (Swift) et Android (Kotlin)",
+                    "Développement cross-platform (React Native, Flutter)",
+                    "Interfaces utilisateur intuitives et modernes",
+                    "Intégration API et services web",
+                    "Publication sur App Store et Google Play",
+                    "Maintenance et mises à jour régulières",
+                    "Support technique et évolutions"
+                ],
+                pricing: [
+                    {
+                        title: "Application basique",
+                        price: "5000€",
+                        description: "Application simple avec fonctionnalités standard"
+                    },
+                    {
+                        title: "Application professionnelle",
+                        price: "À partir de 10000€",
+                        description: "Application complète avec back-office"
+                    },
+                    {
+                        title: "Application sur mesure",
+                        price: "À partir de 15000€",
+                        description: "Développement spécifique avec fonctionnalités avancées"
+                    },
+                    {
+                        title: "Projet complexe",
+                        price: "Étude au cas par cas",
+                        description: "Applications avec intégrations système complexes",
+                        special: true
+                    }
+                ]
+            }
+        };
+        
+        // Gestion des clics sur les cartes secteurs
+        document.addEventListener('DOMContentLoaded', function() {
+            const sectorCards = document.querySelectorAll('.sector-card');
+            const catalogueSection = document.getElementById('catalogue');
+            const productDetailSection = document.getElementById('product-detail');
+            const productDetailContainer = productDetailSection.querySelector('.container');
+            
+            // Clic sur une carte secteur
+            sectorCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const sector = this.getAttribute('data-sector');
+                    showProductDetail(sector);
+                });
+            });
+            
+            // Clic sur les boutons "Voir les services"
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const sectorCard = this.closest('.sector-card');
+                    const sector = sectorCard.getAttribute('data-sector');
+                    showProductDetail(sector);
+                });
+            });
+            
+            // Fonction pour afficher la fiche produit
+            function showProductDetail(sector) {
+                const service = servicesData[sector];
+                
+                // Générer le HTML de la fiche produit
+                let pricingHTML = '';
+                service.pricing.forEach(item => {
+                    pricingHTML += `
+                        <div class="price-item ${item.special ? 'case-by-case' : ''}">
+                            <div class="price-header">
+                                <div class="price-title">${item.title}</div>
+                                <div class="price-tag">${item.price}</div>
+                            </div>
+                            <div class="price-description">${item.description}</div>
+                        </div>
+                    `;
+                });
+                
+                let featuresHTML = '';
+                service.features.forEach(feature => {
+                    featuresHTML += `<li><i class="fas fa-check"></i> ${feature}</li>`;
+                });
+                
+                const productHTML = `
+                    <div class="product-header">
+                        <button class="back-btn" id="back-to-catalogue">
+                            <i class="fas fa-arrow-left"></i> Retour au catalogue
+                        </button>
+                        <div class="product-title">
+                            <h2>${service.title}</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="product-content fade-in">
+                        <div class="product-info">
+                            <div class="product-description">
+                                <h3>Description du service</h3>
+                                <p>${service.description}</p>
+                            </div>
+                            
+                            <div class="product-features">
+                                <h3>Nos prestations</h3>
+                                <ul>${featuresHTML}</ul>
+                            </div>
+                            
+                            <div class="pricing-options">
+                                <h3>Tarifs indicatifs</h3>
+                                ${pricingHTML}
+                                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray); text-align: center;">
+                                    <i class="fas fa-info-circle"></i> Les prix sont TTC. Déplacement et frais supplémentaires selon projet.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="quote-form">
+                            <h3>Demander un devis personnalisé</h3>
+                            <form id="quote-form-${sector}">
+                                <div class="form-group">
+                                    <label for="name-${sector}">Nom complet *</label>
+                                    <input type="text" id="name-${sector}" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email-${sector}">Adresse email *</label>
+                                    <input type="email" id="email-${sector}" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone-${sector}">Téléphone</label>
+                                    <input type="tel" id="phone-${sector}" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-${sector}">Décrivez votre projet *</label>
+                                    <textarea id="project-${sector}" class="form-control" placeholder="Décrivez vos besoins, la surface concernée, les contraintes particulières..." required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="budget-${sector}">Budget estimé (optionnel)</label>
+                                    <select id="budget-${sector}" class="form-control">
+                                        <option value="">Sélectionnez une tranche</option>
+                                        <option value="<1000">Moins de 1000€</option>
+                                        <option value="1000-3000">1000€ à 3000€</option>
+                                        <option value="3000-5000">3000€ à 5000€</option>
+                                        <option value="5000-10000">5000€ à 10000€</option>
+                                        <option value=">10000">Plus de 10000€</option>
+                                        <option value="nc">Non communiqué</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-paper-plane"></i> Envoyer la demande de devis
+                                </button>
+                                
+                                <div class="form-note">
+                                    * Champs obligatoires. Nous vous répondons sous 48h.
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 `;
-                cartItems.appendChild(cartItem);
-            });
-            
-            totalAmount.textContent = formatCurrency(total);
-        }
-
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('fr-FR').format(amount) + ' FCFA';
-        }
-
-        function showNotification(message) {
-            // Simple notification - could be enhanced with a proper toast
-            alert(message);
-        }
-
-        function sendWhatsApp() {
-            if (cart.length === 0) {
-                alert('Votre panier est vide.');
-                return;
+                
+                // Mettre à jour le contenu
+                productDetailContainer.innerHTML = productHTML;
+                
+                // Afficher la fiche produit et masquer le catalogue
+                productDetailSection.style.display = 'block';
+                catalogueSection.style.display = 'none';
+                
+                // Faire défiler vers le haut
+                window.scrollTo(0, 0);
+                
+                // Gérer le bouton retour
+                document.getElementById('back-to-catalogue').addEventListener('click', function() {
+                    productDetailSection.style.display = 'none';
+                    catalogueSection.style.display = 'block';
+                    window.scrollTo(0, 0);
+                });
+                
+                // Gérer la soumission du formulaire
+                document.getElementById(`quote-form-${sector}`).addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Ici, normalement, on enverrait les données à un serveur
+                    // Pour cet exemple, on simule juste l'envoi
+                    const serviceName = service.title;
+                    const name = document.getElementById(`name-${sector}`).value;
+                    const email = document.getElementById(`email-${sector}`).value;
+                    
+                    // Afficher un message de confirmation
+                    alert(`Merci ${name} ! Votre demande de devis pour "${serviceName}" a été envoyée. Nous vous contacterons à ${email} dans les 48h.`);
+                    
+                    // Réinitialiser le formulaire
+                    this.reset();
+                });
             }
-            
-            const name = document.getElementById('clientName').value.trim();
-            const phone = document.getElementById('clientPhone').value.trim();
-            const email = document.getElementById('clientEmail').value.trim();
-            const description = document.getElementById('projectDescription').value.trim();
-            
-            if (!name || !phone) {
-                alert('Veuillez remplir votre nom et téléphone.');
-                return;
-            }
-            
-            let message = `Nouvelle Commande Pératsim%0A%0A`;
-            message += `Client: ${encodeURIComponent(name)}%0A`;
-            message += `Téléphone: ${encodeURIComponent(phone)}%0A`;
-            if (email) message += `Email: ${encodeURIComponent(email)}%0A`;
-            message += `%0ACommande:%0A`;
-            
-            let total = 0;
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                message += `• ${item.quantity}x ${item.name} - ${formatCurrency(itemTotal)}%0A`;
-            });
-            
-            message += `%0ATotal: ${formatCurrency(total)}%0A%0A`;
-            
-            if (description) {
-                message += `Description: ${encodeURIComponent(description)}`;
-            }
-            
-            const whatsappUrl = `https://wa.me/22677451509?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCartDisplay();
         });
-
-        // Global functions
-        window.addToCart = addToCart;
-        window.removeFromCart = removeFromCart;
-        window.updateQuantity = updateQuantity;
-        window.clearCart = clearCart;
-        window.sendWhatsApp = sendWhatsApp;
     </script>
 </body>
 </html>
