@@ -19,11 +19,10 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Accueil' },
-    { href: '/solutions', label: 'Solutions' },
-    { href: '/pricing', label: 'Tarifs' },
-    { href: '/docs', label: 'Documentation' },
-    { href: '/resources', label: 'Ressources' },
+    { href: '/#services', label: 'Services' },
+    { href: '/#secteurs', label: 'Secteurs' },
     { href: '/about', label: 'À propos' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -57,12 +56,11 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" size="sm">
-              Connexion
-            </Button>
-            <Button size="sm">
-              Consultation gratuite
-            </Button>
+            <a href="https://wa.me/22677554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20discuter" target="_blank" rel="noopener noreferrer">
+              <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
+                +226 77 55 45 09
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

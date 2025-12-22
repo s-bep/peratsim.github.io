@@ -7,36 +7,28 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    Product: [
-      { label: 'Features', href: '/#features' },
-      { label: 'Pricing', href: '/pricing' },
-      { label: 'Documentation', href: '/docs' },
-      { label: 'API Reference', href: '/docs/api' },
+    Services: [
+      { label: 'Développement Logiciel', href: '/#services' },
+      { label: 'Cybersécurité', href: '/#services' },
+      { label: 'Automatisation & Robotique', href: '/#services' },
+      { label: 'Consulting', href: '/#services' },
     ],
-    Company: [
-      { label: 'About', href: '/about' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Careers', href: '/careers' },
+    Secteurs: [
+      { label: 'Industrie', href: '/#secteurs' },
+      { label: 'Agroalimentaire', href: '/#secteurs' },
+      { label: 'Agriculture', href: '/#secteurs' },
+      { label: 'Gestion de l\'Eau', href: '/#secteurs' },
+    ],
+    Entreprise: [
+      { label: 'À propos', href: '/about' },
       { label: 'Contact', href: '/contact' },
-    ],
-    Resources: [
-      { label: 'Case Studies', href: '/resources/case-studies' },
-      { label: 'Guides', href: '/resources/guides' },
-      { label: 'Webinars', href: '/resources/webinars' },
-      { label: 'FAQ', href: '/faq' },
-    ],
-    Legal: [
-      { label: 'Privacy Policy', href: '/politique-confidentialite' },
-      { label: 'Terms of Service', href: '/terms' },
-      { label: 'Legal Mentions', href: '/mentions-legales' },
-      { label: 'Cookies', href: '/cookies' },
+      { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
+      { label: 'Mentions légales', href: '/mentions-legales' },
     ],
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com/company/peratsim', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/peratsim', label: 'Twitter' },
-    { icon: Github, href: 'https://github.com/peratsim', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.facebook.com/peratsimInnovation', label: 'Facebook' },
   ];
 
   return (
