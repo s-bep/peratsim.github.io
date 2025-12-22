@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Container from '@/components/Container';
 import Heading from '@/components/Heading';
-import Card from '@/components/Card';
 import Badge from '@/components/Badge';
 
 export const metadata: Metadata = {

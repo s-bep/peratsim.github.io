@@ -5,7 +5,6 @@ import Container from '@/components/Container';
 import Heading from '@/components/Heading';
 
 export default function Error({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };

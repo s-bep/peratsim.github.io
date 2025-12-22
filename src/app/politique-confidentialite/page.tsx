@@ -19,7 +19,7 @@ export default function PolitiqueConfidentialitePage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">1. Introduction</h2>
           <p>
-            Pératsim Innovation (&quot;nous&quot;, &quot;notre&quot; ou &quot;Pératsim&quot;) s'engage à
+            Pératsim Innovation (&quot;nous&quot;, &quot;notre&quot; ou &quot;Pératsim&quot;) s&apos;engage à
             protéger votre confidentialité. Cette Politique de Confidentialité explique comment nous
             collectons, utilisons, divulguons et exploitons autrement vos informations.
           </p>
@@ -32,7 +32,7 @@ export default function PolitiqueConfidentialitePage() {
               localisation
             </li>
             <li>
-              <strong>Informations de compte</strong> : Données de connexion, historique d'accès
+              <strong>Informations de compte</strong> : Données de connexion, historique d&apos;accès
             </li>
             <li>
               <strong>Données de navigation</strong> : Cookies, fichiers journaux, adresse IP
@@ -54,14 +54,14 @@ export default function PolitiqueConfidentialitePage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">4. Partage des Informations</h2>
           <p>
-            Nous ne vendons, n'échangeons ni ne louons vos informations personnelles aux tiers, sauf
+            Nous ne vendons, n&apos;échangeons ni ne louons vos informations personnelles aux tiers, sauf
             si requis par la loi ou avec votre consentement explicite.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">5. Sécurité des Données</h2>
           <p>
             Nous mettons en place des mesures de sécurité appropriées pour protéger vos informations
-            contre l'accès, l'altération, la divulgation ou la destruction non autorisés.
+            contre l&apos;accès, l&apos;altération, la divulgation ou la destruction non autorisés.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">6. Droits de l'Utilisateur</h2>

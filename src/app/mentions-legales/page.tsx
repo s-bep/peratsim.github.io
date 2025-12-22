@@ -4,7 +4,7 @@ import Heading from '@/components/Heading';
 
 export const metadata: Metadata = {
   title: 'Mentions Légales',
-  description: 'Mentions légales et conditions d\'utilisation de Pératsim Innovation.',
+  description: 'Mentions légales et conditions d&apos;utilisation de Pératsim Innovation.',
   robots: 'index, follow',
 };
 
@@ -48,27 +48,27 @@ export default function MentionsLegalesPage() {
             contenu ne peut être reproduite sans autorisation préalable écrite.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">4. Conditions d'Utilisation</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">4. Conditions d&apos;Utilisation</h2>
           <p>L'accès et l'utilisation du site sont soumis aux conditions suivantes :</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Ne pas utiliser le site à des fins illégales ou frauduleuses</li>
             <li>Ne pas modifier, copier ou distribuer le contenu sans permission</li>
-            <li>Respecter les droits d'auteur et propriété intellectuelle</li>
+            <li>Respecter les droits d&apos;auteur et propriété intellectuelle</li>
             <li>Ne pas accéder aux données de manière non autorisée</li>
           </ul>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">5. Responsabilité</h2>
           <p>
             Pératsim Innovation met tout en œuvre pour assurer la qualité et la précision des
-            informations. Cependant, nous ne pouvons pas garantir l'absence d'erreurs ou
-            l'exhaustivité des données. L'utilisation du site se fait à vos risques et périls.
+            informations. Cependant, nous ne pouvons pas garantir l&apos;absence d&apos;erreurs ou
+            l&apos;exhaustivité des données. L&apos;utilisation du site se fait à vos risques et périls.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">6. Limitation de Responsabilité</h2>
           <p>
             Sauf disposition légale contraire, Pératsim Innovation ne sera pas responsable pour les
-            dommages directs, indirects, accessoires ou consécutifs découlant de l'utilisation ou de
-            l'incapacité à utiliser le site.
+            dommages directs, indirects, accessoires ou consécutifs découlant de l&apos;utilisation ou de
+            l&apos;incapacité à utiliser le site.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">7. Liens Externes</h2>
