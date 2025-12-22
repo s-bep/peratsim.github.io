@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 import Heading from '@/components/Heading';
@@ -24,9 +25,11 @@ export default function Error({
           <Button size="lg" onClick={() => reset()}>
             Réessayer
           </Button>
-          <Button size="lg" variant="outline" href="/">
-            Accueil
-          </Button>
+          <Link href="/">
+            <Button size="lg" variant="outline">
+              Accueil
+            </Button>
+          </Link>
         </div>
       </Container>
     </main>
