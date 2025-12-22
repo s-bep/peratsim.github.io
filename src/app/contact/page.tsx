@@ -192,7 +192,7 @@ export default function Contact() {
                   Nous nous engageons à répondre à toutes les demandes dans les délais suivants:
                 </p>
                 <ul className="space-y-2 text-neutral-600 text-sm">
-                  <li>• <strong>WhatsApp:</strong> Dans l\'heure (horaires de travail)</li>
+                  <li>• <strong>WhatsApp:</strong> Dans l&apos;heure (horaires de travail)</li>
                   <li>• <strong>Email:</strong> Dans les 24 heures</li>
                   <li>• <strong>Téléphone:</strong> Appels entrants acceptés en direct</li>
                 </ul>
@@ -201,7 +201,7 @@ export default function Contact() {
               <Card className="bg-gradient-to-br from-primary-50 to-secondary-50">
                 <h4 className="font-semibold text-lg mb-3">Consultation gratuite</h4>
                 <p className="text-neutral-600 mb-4">
-                  Offrez-vous une première consultation avec nos experts pour explorer vos opportunités d\'innovation.
+                  Offrez-vous une première consultation avec nos experts pour explorer vos opportunités d&apos;innovation.
                 </p>
                 <a href="https://wa.me/22677554509?text=Je%20souhaite%20une%20consultation%20gratuite" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full bg-primary-600 hover:bg-primary-700">

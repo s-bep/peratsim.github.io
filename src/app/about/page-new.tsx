@@ -12,12 +12,12 @@ export default function About() {
     {
       role: 'Direction',
       icon: Target,
-      description: 'Leadership et vision stratégique pour la croissance et l\'innovation',
+      description: 'Leadership et vision stratégique pour la croissance et l&apos;innovation',
     },
     {
       role: 'Développement',
       icon: Code,
-      description: 'Experts en technologies modernes et développement d\'applications',
+      description: 'Experts en technologies modernes et développement d&apos;applications',
     },
     {
       role: 'Cybersécurité',
@@ -84,21 +84,21 @@ export default function About() {
               <Heading level={2} className="mb-6">Fondée sur une vision claire</Heading>
               
               <p className="text-neutral-600 text-lg leading-relaxed mb-6">
-                Pératsim Innovation a été créée par des experts en technologies avancées partageant une conviction commune: l\'Afrique peut devenir un leader en innovation technologique.
+                Pératsim Innovation a été créée par des experts en technologies avancées partageant une conviction commune: l&apos;Afrique peut devenir un leader en innovation technologique.
               </p>
 
               <p className="text-neutral-600 text-lg leading-relaxed mb-6">
-                Basés à Ouagadougou au Burkina Faso, nous servons des clients à travers l\'Afrique de l\'Ouest, apportant des solutions technologiques de classe mondiale adaptées aux contextes locaux.
+                Basés à Ouagadougou au Burkina Faso, nous servons des clients à travers l&apos;Afrique de l&apos;Ouest, apportant des solutions technologiques de classe mondiale adaptées aux contextes locaux.
               </p>
 
               <div className="space-y-4">
                 <div>
                   <p className="font-semibold text-neutral-900 mb-2">50+ projets réussis</p>
-                  <p className="text-neutral-600">Clients satisfaits à travers l\'Afrique de l\'Ouest</p>
+                  <p className="text-neutral-600">Clients satisfaits à travers l&apos;Afrique de l&apos;Ouest</p>
                 </div>
                 <div>
                   <p className="font-semibold text-neutral-900 mb-2">Expertise pluridisciplinaire</p>
-                  <p className="text-neutral-600">6 domaines d\'expertise pour couvrir vos besoins</p>
+                  <p className="text-neutral-600">6 domaines d&apos;expertise pour couvrir vos besoins</p>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-semibold mb-4">Notre Vision</h3>
               <p className="text-neutral-600 text-lg">
-                Accompagner durablement votre croissance par l\'innovation, en restant à la pointe de la technologie.
+                Accompagner durablement votre croissance par l&apos;innovation, en restant à la pointe de la technologie.
               </p>
             </Card>
           </div>

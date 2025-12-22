@@ -1,12 +1,11 @@
 'use client';
 
-import { ArrowRight, Code, Shield, Zap, Cpu, BookOpen, Network, Check, Droplets, Leaf, Wheat, Stethoscope, DollarSign } from 'lucide-react';
+import { ArrowRight, Code, Shield, Zap, Cpu, BookOpen, Network, Check } from 'lucide-react';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 import Heading from '@/components/Heading';
 import Card from '@/components/Card';
 import Badge from '@/components/Badge';
-import { useState } from 'react';
 
 export default function Home() {
   const services = [
@@ -37,7 +36,7 @@ export default function Home() {
     {
       icon: Zap,
       title: 'Automatisation & Robotique',
-      description: 'Nous développons et déployons des solutions d\'automatisation et de robotique pour optimiser vos processus industriels.',
+      description: 'Nous développons et déployons des solutions d&apos;automatisation et de robotique pour optimiser vos processus industriels.',
       features: [
         'Robots industriels et collaboratifs',
         'Drones pour inspection et surveillance',
@@ -273,7 +272,7 @@ export default function Home() {
               <Badge className="mb-4" variant="primary">Qui sommes-nous</Badge>
               <Heading level={2} className="mb-6">Votre expert en transformation digitale</Heading>
               <p className="text-neutral-600 text-lg leading-relaxed mb-6">
-                Pératsim Innovation accompagne les entreprises dans leur quête d\'excellence opérationnelle et d\'innovation stratégique. Experts en technologies avancées, nous vous accompagnons dans le développement logiciel, la cybersécurité, les infrastructures réseaux, les solutions d\'automatisation et l\'accompagnement stratégique.
+                Pératsim Innovation accompagne les entreprises dans leur quête d&apos;excellence opérationnelle et d&apos;innovation stratégique. Experts en technologies avancées, nous vous accompagnons dans le développement logiciel, la cybersécurité, les infrastructures réseaux, les solutions d&apos;automatisation et l&apos;accompagnement stratégique.
               </p>
               <div className="space-y-4">
                 <div>
@@ -282,7 +281,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-semibold text-neutral-900">Notre vision</p>
-                  <p className="text-neutral-600">Accompagner durablement votre croissance par l\'innovation</p>
+                  <p className="text-neutral-600">Accompagner durablement votre croissance par l&apos;innovation</p>
                 </div>
               </div>
             </div>
@@ -300,7 +299,7 @@ export default function Home() {
             <Badge className="mb-6 justify-center" variant="primary">Nos services</Badge>
             <Heading level={2} className="mb-4">Un écosystème complet pour votre transformation digitale</Heading>
             <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
-              Six domaines d\'expertise pour couvrir tous vos besoins technologiques et stratégiques.
+              Six domaines d&apos;expertise pour couvrir tous vos besoins technologiques et stratégiques.
             </p>
           </div>
 
@@ -316,7 +315,7 @@ export default function Home() {
                   <p className="text-neutral-600 flex-1">{service.description}</p>
                   <div className="mt-6 pt-6 border-t border-neutral-200">
                     <a href="https://wa.me/22677554509" target="_blank" rel="noopener noreferrer">
-                      <Button variant="ghost" size="sm">En savoir plus →</Button>
+                      <Button variant="ghost" size="sm">En savoir plus &rarr;</Button>
                     </a>
                   </div>
                 </Card>
@@ -383,10 +382,10 @@ export default function Home() {
       <section className="py-20 md:py-32 bg-white">
         <Container>
           <div className="text-center mb-16">
-            <Badge className="mb-6 justify-center" variant="primary">Secteurs d\'intervention</Badge>
+            <Badge className="mb-6 justify-center" variant="primary">Secteurs d&apos;intervention</Badge>
             <Heading level={2} className="mb-4">Solutions adaptées à chaque industrie</Heading>
             <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
-              Expertise sectorielle pour un impact maximal dans votre domaine d\'activité.
+              Expertise sectorielle pour un impact maximal dans votre domaine d&apos;activité.
             </p>
           </div>
 
@@ -455,7 +454,7 @@ export default function Home() {
             Prêt à transformer vos défis technologiques en opportunités ?
           </Heading>
           <p className="text-primary-100 text-lg mb-8">
-            Consultez nos experts gratuitement pour explorer les opportunités d\'innovation dans votre secteur.
+            Consultez nos experts gratuitement pour explorer les opportunités d&apos;innovation dans votre secteur.
           </p>
           <a href="https://wa.me/22677554509?text=Bonjour%20P%C3%A9ratsim%20Innovation%2C%20je%20souhaite%20d%C3%A9marrer%20un%20projet." target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-secondary-600 hover:bg-secondary-700 text-white">

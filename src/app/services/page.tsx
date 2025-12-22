@@ -4,7 +4,6 @@ import { ArrowRight, Code, Shield, Zap, Cpu, BookOpen, Network, Check } from 'lu
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 import Heading from '@/components/Heading';
-import Card from '@/components/Card';
 import Badge from '@/components/Badge';
 
 export default function Services() {
@@ -109,7 +108,7 @@ export default function Services() {
             </h1>
 
             <p className="text-lg md:text-xl text-neutral-300">
-              Six domaines d\'expertise pour couvrir tous vos besoins technologiques et stratégiques.
+              Six domaines d&apos;expertise pour couvrir tous vos besoins technologiques et stratégiques.
             </p>
           </div>
         </Container>
@@ -197,10 +196,10 @@ export default function Services() {
       <section className="py-20 md:py-32 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-900 text-white">
         <Container className="text-center max-w-2xl mx-auto">
           <Heading level={2} className="text-white mb-4">
-            Besoin d\'un service spécifique ?
+            Besoin d&apos;un service spécifique ?
           </Heading>
           <p className="text-primary-100 text-lg mb-8">
-            Notre équipe d\'experts est prête à discuter de vos besoins spécifiques et à proposer des solutions sur mesure.
+            Notre équipe d&apos;experts est prête à discuter de vos besoins spécifiques et à proposer des solutions sur mesure.
           </p>
           <a href="https://wa.me/22677554509?text=Je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-secondary-600 hover:bg-secondary-700 text-white">
