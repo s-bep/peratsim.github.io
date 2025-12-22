@@ -17,7 +17,7 @@ export default function MentionsLegalesPage() {
             Mentions Légales
           </Heading>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">1. Identité de l'Éditeur</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">1. Identité de l&apos;Éditeur</h2>
           <p>
             <strong>Dénomination :</strong> Pératsim Innovation
             <br />
@@ -49,7 +49,7 @@ export default function MentionsLegalesPage() {
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">4. Conditions d&apos;Utilisation</h2>
-          <p>L'accès et l'utilisation du site sont soumis aux conditions suivantes :</p>
+          <p>L&apos;accès et l&apos;utilisation du site sont soumis aux conditions suivantes :</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Ne pas utiliser le site à des fins illégales ou frauduleuses</li>
             <li>Ne pas modifier, copier ou distribuer le contenu sans permission</li>
@@ -91,7 +91,7 @@ export default function MentionsLegalesPage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">10. Recours</h2>
           <p>
-            Pour tout litige ou réclamation, veuillez d'abord nous contacter afin de résoudre la
+            Pour tout litige ou réclamation, veuillez d&apos;abord nous contacter afin de résoudre la
             question amiablement.
           </p>
 

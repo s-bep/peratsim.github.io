@@ -64,7 +64,7 @@ export default function PolitiqueConfidentialitePage() {
             contre l&apos;accès, l&apos;altération, la divulgation ou la destruction non autorisés.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">6. Droits de l'Utilisateur</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">6. Droits de l&apos;Utilisateur</h2>
           <p>Vous avez le droit de :</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Accéder à vos données personnelles</li>
